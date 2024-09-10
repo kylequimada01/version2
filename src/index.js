@@ -1,39 +1,31 @@
+import express from 'express';
 
-
-import express from 'express'
 const port = process.env.PORT || 3000;
-
 const app = express();
 
 // Define your personal details
-const firstName = 'kyle';
-const lastName = 'quimada';
-const age = 23;
-const schoolEmail = 'kylequimada@phinmaed.com';
+const subjectCode = 'ITE314';
+const examDetails = 'P2';
+const nodeMessage = 'NODEJS';
 
 // Route handlers
-app.get('/firstname', (req, res) => {
-    res.send(firstName.toUpperCase());
+app.get('/subject', (req, res) => {
+    res.send(subjectCode.toUpperCase());
 });
 
-app.get('/lastname', (req, res) => {
-    res.send(lastName.toUpperCase());
+app.get('/exam', (req, res) => {
+    res.send(examDetails);
 });
 
-app.get('/age', (req, res) => {
-    res.send(`${age}`);
-});
-
-app.get('/schoolemail', (req, res) => {
-    res.send(schoolEmail);
+app.get('/node', (req, res) => {
+    res.send(nodeMessage);
 });
 
 app.get('/mydata', (req, res) => {
     res.json({
-        first_name: firstName.toUpperCase(),
-        last_name: lastName.toUpperCase(),
-        age: age,
-        school_email: schoolEmail
+        subject: subjectCode.toUpperCase(),
+        exam: examDetails,
+        node: nodeMessage
     });
 });
 
